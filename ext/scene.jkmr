@@ -1,2 +1,4 @@
 var(scene, -- Scene 0.9 Preview -- )
+var(scene.author, -- Created by Imancat)
+var(scene.category, -- Category: Graphics/Display)
 print("-$ Scene.jkmr downloaded succesfully.")
