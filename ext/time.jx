@@ -1,0 +1,7 @@
+var($time, "-- Time 1.0 --")
+print('-$ Time extension: Ensure that before using variables, they are updated using "$time.update()".')
+function($time.update, 0) {
+var($time.now, js.eval(`${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, '0')}-${String(new Date().getDate()).padStart(2, '0')} ${String(new Date().getHours()).padStart(2, '0')}:${String(new Date().getMinutes()).padStart(2, '0')}:${String(new Date().getSeconds()).padStart(2, '0')}`))
+var($time.timestamp, js.eval(Math.floor(Date.now() / 1000)))
+var($time.offset, js.eval(new Date().getTimezoneOffset() / -60))
+}
