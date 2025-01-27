@@ -1,0 +1,6 @@
+var(test, -- Test -- )
+var(test.author, # Created by tester)
+var(test.category, # Category: test)
+function(test, 0) {
+ print("Hello, World!") ## outputs the string to console
+}
