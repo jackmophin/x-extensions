@@ -1,7 +1,19 @@
-var($time, "-- Time 1.0 --")
-print('-$ Time extension: Ensure that before using variables, they are updated using "$time.update()".')
+var($time, "-- Time 1.1 --");
+print('-$ Time extension: Ensure that before using variables, they are updated using "$time.update()".');
 function($time.update, 0) {
-var($time.now, js.eval(`${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, '0')}-${String(new Date().getDate()).padStart(2, '0')} ${String(new Date().getHours()).padStart(2, '0')}:${String(new Date().getMinutes()).padStart(2, '0')}:${String(new Date().getSeconds()).padStart(2, '0')}`))
-var($time.timestamp, js.eval(Math.floor(Date.now() / 1000)))
-var($time.offset, js.eval(new Date().getTimezoneOffset() / -60))
+  var($time.now, js.eval(`${new Date().getFullYear()}-${String(new Date().getMonth() + 1).padStart(2, '0')}-${String(new Date().getDate()).padStart(2, '0')} ${String(new Date().getHours()).padStart(2, '0')}:${String(new Date().getMinutes()).padStart(2, '0')}:${String(new Date().getSeconds()).padStart(2, '0')}`));
+  var($time.timestamp, js.eval(Math.floor(Date.now() / 1000)));
+  var($time.offset, js.eval(new Date().getTimezoneOffset() / -60));
+  var($time.iso, js.eval(new Date().toISOString())); 
+  var($time.weekday, js.eval(new Date().toLocaleString('en-US', { weekday: 'long' })));
+  var($time.weekNumber, js.eval(Math.ceil((((new Date() - new Date(new Date().getFullYear(), 0, 1)) / 86400000) + new Date().getDay() + 1) / 7)));
+  var($time.year, js.eval(new Date().getFullYear())); 
+  var($time.month, js.eval(String(new Date().getMonth() + 1).padStart(2, '0'))); 
+  var($time.day, js.eval(String(new Date().getDate()).padStart(2, '0'))); 
+  var($time.hour, js.eval(String(new Date().getHours()).padStart(2, '0'))); 
+  var($time.minute, js.eval(String(new Date().getMinutes()).padStart(2, '0')));
+  var($time.second, js.eval(String(new Date().getSeconds()).padStart(2, '0'))); 
+  var($time.dateString, js.eval(new Date().toLocaleDateString()));
+  var($time.timeString, js.eval(new Date().toLocaleTimeString()));
+  var($time.fullString, js.eval(new Date().toLocaleString()));
 }
