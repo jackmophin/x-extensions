@@ -2,12 +2,12 @@ var($utils, "-- Utility Extension 1.0 --")
 var($utils.description, "-$ Utility Extension: Provides basic string and number functions.")
 
 function($utils.concat, 0) {
-  var($result, math($args[1] + $args[2]))
+  var($result, js.eval(`${$args[1]}${$args[2]}`))
   print($result)
 }
 
 function($utils.length, 0) {
-  var($result, math(len($args[1])))
+  var($result, js.eval($args.length))
   print($result)
 }
 
@@ -22,7 +22,7 @@ function($utils.random, 0) {
 }
 
 function($utils.round, 0) {
-  var($result, math(round($args[1])))
+  var($result, js.eval($args[1].toFixed($args[2])))
   print($result)
 }
 
