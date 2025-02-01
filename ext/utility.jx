@@ -1,32 +1,32 @@
-var($utils, "-- Utility Extension 1.0 --")
-var($utils.description, "-$ Utility Extension: Provides basic string and number functions.")
+var($utility, "-- Utility Extension 1.0 --")
+var($utility.description, "-$ Utility Extension: Provides basic string and number functions.")
 
-function($utils.concat, 0) {
+function($utility.concat, 0) {
   var($result, $args[1] + $args[2])
   print($result)
 }
 
-function($utils.length, 0) {
+function($utility.length, 0) {
   var($result, math(len($args[1])))
   print($result)
 }
 
-function($utils.contains, 0) {
+function($utility.contains, 0) {
   var($result, js.eval($args[1].includes($args[2]) ? "true" : "false"))
   print($result)
 }
 
-function($utils.random, 0) {
+function($utility.random, 0) {
   var($result, js.eval(Math.floor(Math.random() * ($args[2] - $args[1] + 1)) + $args[1]))
   print($result)
 }
 
-function($utils.round, 0) {
+function($utility.round, 0) {
   var($result, math(round($args[1])))
   print($result)
 }
 
-function($utils.compare, 0) {
+function($utility.compare, 0) {
   var($result, js.eval($args[1] > $args[2] ? "greater" : ($args[1] < $args[2] ? "less" : "equal")))
   print($result)
 }
