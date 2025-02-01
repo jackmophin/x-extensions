@@ -1,0 +1,25 @@
+var($wasm, "-- WebAssembly Extension 1.2 --")
+print("-$ WebAssembly Extension: Enables interaction with WebAssembly modules.")
+
+function($wasm.init, 0) {
+  js.eval("var wasmModule; WebAssembly.instantiateStreaming(fetch(window.args[1])).then(m => { wasmModule = m; console.log('WASM module initialized from:', window.args[1]); });")
+}
+
+function($wasm.run, 0) {
+  js.eval("if (wasmModule) { console.log('WASM function result: ', wasmModule.exports.yourWasmFunction()); } else { console.log('WASM module is not initialized yet.'); }")
+}
+
+function($wasm.getMemory, 0) {
+  js.eval("console.log('WASM Memory: ', wasmModule ? wasmModule.exports.memory : null);")
+}
+
+function($wasm.call, 0) {
+  var($param1, $args[1])
+  var($param2, $args[2])
+  js.eval("if (wasmModule) { console.log('WASM function call result: ', wasmModule.exports.someFunction(" + $param1 + ", " + $param2 + ")); } else { console.log('WASM module is not initialized yet.'); }")
+}
+
+function($wasm.setData, 0) {
+  var($data, $args[1])
+  js.eval("if (wasmModule) { var memoryView = new Int32Array(wasmModule.exports.memory.buffer); memoryView[0] = " + $data + "; console.log('Data set in WASM memory: ', " + $data + "); } else { console.log('WASM module is not initialized yet.'); }")
+}
