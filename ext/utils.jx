@@ -30,11 +30,3 @@ function($utils.compare, 0) {
   var($result, js.eval($args[1] > $args[2] ? "greater" : ($args[1] < $args[2] ? "less" : "equal")))
   print($result)
 }
-
-function($utils.if, 0) {
-  if($args[1]) {
-    print($args[2])
-  } else {
-    print($args[3])
-  }
-}
